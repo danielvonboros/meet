@@ -14,11 +14,12 @@ const credentials = {
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://googleapis.com/oauth2/v1/certs",
-  redirect_uris: ["https://danielvonboros.github.io/meet/"],
+  redirect_uris: ["https://danielvonboros.github.io/meet"],
   javascript_origins: ["https://danielvonboros.github.io", "localhost:3000"],
 };
 
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
+console.log(credentials, "credentials from handler JS");
 const oAuth2Client = new google.auth.OAuth2(
   client_id,
   client_secret,
@@ -38,4 +39,35 @@ module.exports.getAuthURL = async () => {
       authUrl: authUrl,
     }),
   };
+};
+
+module.exports.getAccessToken = async(event) {
+  const oAuth2Client = new.google.auth.OAuth2(
+    client_id,
+    client_secret,
+    redirect_uris[0]
+  );
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
+
+  return new Promise ((resolve, reject) => {
+    oAuth2Client.getToken(code, (err,token) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(token);
+    });
+  })
+  .then((token) => {
+    return {
+      statusCode: 200,
+      body: JSON.stringify(token),
+    };
+  })
+  .catch((err) => {
+    console.error(err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(err),
+    };
+  });
 };
