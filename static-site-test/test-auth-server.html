@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Auth Server</title>
+  </head>
+  <body>
+    <style>
+      #container {
+        max-width: 500px;
+      }
+      h4 {
+        margin-top: 25px;
+      }
+    </style>
+
+    <main id="container">
+      <h1>OAuth2 Test</h1>
+      <h4><b>Step 1:</b> Get the Auth URL</h4>
+      <p>Click the button below to get your auth url.</p>
+      <button id="getCode">Get OAuth URL</button>
+      <p id="result"></p>
+      <a id="authURL" href target="_blank">Click to authorise</a>
+    </main>
+  </body>
+</html>

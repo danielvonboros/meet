@@ -187,7 +187,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1626197669269-2021-07-13T17:34:29.269Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1626198912075-2021-07-13T17:55:12.075Z/auth-server.zip"
               },
               "Handler": "handler.getAuthURL",
               "Runtime": "nodejs12.x",
@@ -220,7 +220,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1626197669269-2021-07-13T17:34:29.269Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1626198912075-2021-07-13T17:55:12.075Z/auth-server.zip"
               },
               "Handler": "handler.getAccessToken",
               "Runtime": "nodejs12.x",
@@ -246,24 +246,24 @@
               "GetAccessTokenLogGroup"
             ]
           },
-          "GetAuthURLLambdaVersionenMr5bmOdrxFKbQ66tDC7abTNc84pjdJYuLGJ15TH4": {
+          "GetAuthURLLambdaVersionyxWMO1LDzU58zeeQnXqaXxV2O6rt9ZVqY2LyKRLwnRg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAuthURLLambdaFunction"
               },
-              "CodeSha256": "B8Ct7007leEzhOz/0diI0Lk8KIERgFKfrwW4jDuQGAs="
+              "CodeSha256": "6P8NukcNePTDLPAH5TEcSE52go4spL+ynlJjOnuS+AU="
             }
           },
-          "GetAccessTokenLambdaVersionAgE7VE3WhLV1WC3O0N1IyBfaLqcJhfuKCNiK2ncJk": {
+          "GetAccessTokenLambdaVersionXovUuApbQtNfiLgcJfDigtc63gPCnhKoc4kWHprLd34": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAccessTokenLambdaFunction"
               },
-              "CodeSha256": "B8Ct7007leEzhOz/0diI0Lk8KIERgFKfrwW4jDuQGAs="
+              "CodeSha256": "6P8NukcNePTDLPAH5TEcSE52go4spL+ynlJjOnuS+AU="
             }
           },
           "ApiGatewayRestApi": {
@@ -421,7 +421,7 @@
               "GetAccessTokenLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1626197664580": {
+          "ApiGatewayDeployment1626198908494": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -521,7 +521,7 @@
           "GetAuthURLLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAuthURLLambdaVersionenMr5bmOdrxFKbQ66tDC7abTNc84pjdJYuLGJ15TH4"
+              "Ref": "GetAuthURLLambdaVersionyxWMO1LDzU58zeeQnXqaXxV2O6rt9ZVqY2LyKRLwnRg"
             },
             "Export": {
               "Name": "sls-auth-server-dev-GetAuthURLLambdaFunctionQualifiedArn"
@@ -530,7 +530,7 @@
           "GetAccessTokenLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAccessTokenLambdaVersionAgE7VE3WhLV1WC3O0N1IyBfaLqcJhfuKCNiK2ncJk"
+              "Ref": "GetAccessTokenLambdaVersionXovUuApbQtNfiLgcJfDigtc63gPCnhKoc4kWHprLd34"
             },
             "Export": {
               "Name": "sls-auth-server-dev-GetAccessTokenLambdaFunctionQualifiedArn"
@@ -667,7 +667,7 @@
         "timeout": 60,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetAuthURLLambdaVersionenMr5bmOdrxFKbQ66tDC7abTNc84pjdJYuLGJ15TH4"
+        "versionLogicalId": "GetAuthURLLambdaVersionyxWMO1LDzU58zeeQnXqaXxV2O6rt9ZVqY2LyKRLwnRg"
       },
       "getAccessToken": {
         "handler": "handler.getAccessToken",
@@ -686,7 +686,7 @@
         "timeout": 60,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetAccessTokenLambdaVersionAgE7VE3WhLV1WC3O0N1IyBfaLqcJhfuKCNiK2ncJk"
+        "versionLogicalId": "GetAccessTokenLambdaVersionXovUuApbQtNfiLgcJfDigtc63gPCnhKoc4kWHprLd34"
       }
     },
     "configValidationMode": "warn",
@@ -708,7 +708,7 @@
     "artifact": "/Users/danielvonboros/Documents/code/careerFoundry/TestingInTheDevelopmentProcess/TddInProgress/meet/auth-server/.serverless/auth-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/auth-server/dev/1626197669269-2021-07-13T17:34:29.269Z",
+    "artifactDirectoryName": "serverless/auth-server/dev/1626198912075-2021-07-13T17:55:12.075Z",
     "artifact": "auth-server.zip"
   }
 }
