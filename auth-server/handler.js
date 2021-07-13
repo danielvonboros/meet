@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
@@ -14,7 +14,7 @@ const credentials = {
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://googleapis.com/oauth2/v1/certs",
-  redirect_uris: ["https://danielvonboros.github.io/meet"],
+  redirect_uris: ["https://danielvonboros.github.io/meet/"],
   javascript_origins: ["https://danielvonboros.github.io", "localhost:3000"],
 };
 
