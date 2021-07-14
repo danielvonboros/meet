@@ -69,7 +69,6 @@
 
       getAccessToken.onclick = function () {
         let code = codeValue.value;
-        console.log(code);
 
         // if the authorization code is not URL-endoded, then encode it...
 
@@ -94,6 +93,7 @@
       getEvents.onclick = function () {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
         const eventRequest = getCalendarEvents + "/" + access_token;
+        console.log(eventRequest);
         fetch(eventRequest)
           .then(function (response) {
             return response.json();
