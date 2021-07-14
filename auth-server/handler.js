@@ -19,7 +19,6 @@ const credentials = {
 };
 
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
-console.log(credentials, "credentials from handler JS");
 const oAuth2Client = new google.auth.OAuth2(
   client_id,
   client_secret,
@@ -41,33 +40,34 @@ module.exports.getAuthURL = async () => {
   };
 };
 
-module.exports.getAccessToken = async(event) => {
-  const oAuth2Client = new.google.auth.OAuth2(
+module.exports.getAccessToken = async (event) => {
+  const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
     redirect_uris[0]
   );
   const code = decodeURIComponent(`${event.pathParameters.code}`);
 
-  return new Promise ((resolve, reject) => {
-    oAuth2Client.getToken(code, (err,token) => {
+  return new Promise((resolve, reject) => {
+    oAuth2Client.getToken(code, (err, token) => {
       if (err) {
         return reject(err);
       }
       return resolve(token);
     });
   })
-  .then((token) => {
-    return {
-      statusCode: 200,
-      body: JSON.stringify(token),
-    };
-  })
-  .catch((err) => {
-    console.error(err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err),
-    };
-  });
+    .then((token) => {
+      return {
+        statusCode: 200,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify(token),
+      };
+    })
+    .catch((err) => {
+      console.error(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err),
+      };
+    });
 };
