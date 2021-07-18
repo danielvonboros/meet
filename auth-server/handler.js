@@ -15,7 +15,12 @@ const credentials = {
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://googleapis.com/oauth2/v1/certs",
   redirect_uris: ["https://danielvonboros.github.io/meet"],
-  javascript_origins: ["https://danielvonboros.github.io", "localhost:3000"],
+  javascript_origins: [
+    "https://danielvonboros.github.io",
+    "localhost:3000",
+    "http://127.0.0.1:8080",
+    "http://192.168.178.20:8080",
+  ],
 };
 
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
@@ -93,7 +98,10 @@ module.exports.getCalendarEvents = async (event) => {
     .then((results) => {
       return {
         statusCode: 200,
-        headers: { "Access-Control-Allow-Origin": "*" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
         body: JSON.stringify({ events: results.data.items }),
       };
     })

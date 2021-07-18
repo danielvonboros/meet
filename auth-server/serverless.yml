@@ -24,7 +24,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: eu-central-1
-  timeout: 60
+  timeout: 30
   lambdaHashingVersion: 20201221
   environment:
     CLIENT_ID: ${file(config.json):CLIENT_ID}
@@ -83,7 +83,7 @@ functions:
       - http:
           path: api/get-events/{access-token}
           method: get
-          cors: true
+          # cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
