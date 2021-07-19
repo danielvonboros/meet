@@ -1,8 +1,10 @@
 import React from "react";
-import EventList from "./EventList";
-import "./App.css";
 
-export default class App extends React.Component {
+import "./App.css";
+import EventList from "./EventList";
+import CitySearch from "./CitySearch";
+
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -14,7 +16,10 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <EventList events={this.state.events} />
+        <CitySearch />
       </div>
     );
   }
 }
+
+export default App;
