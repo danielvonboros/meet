@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import App from "./App";
 
 class CitySearch extends Component {
+  state = {
+    query: "",
+  };
+
   render() {
     return (
       <div className="CitySearch">
-        <input type="text" className="city" />
+        <input type="text" className="city" value={this.state.query} />
         <ul className="suggestions"></ul>
       </div>
     );
