@@ -2,12 +2,19 @@ import React from "react";
 import EventList from "./EventList";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <EventList />
-    </div>
-  );
-}
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      events: [],
+    };
+  }
 
-export default App;
+  render() {
+    return (
+      <div className="App">
+        <EventList events={this.state.events} />
+      </div>
+    );
+  }
+}
