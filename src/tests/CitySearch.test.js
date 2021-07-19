@@ -3,8 +3,14 @@ import { shallow } from "enzyme";
 import CitySearch from "../CitySearch";
 
 describe("<CitySearch /> component", () => {
+  let CitySearchWrapper;
+  CitySearchWrapper = shallow(<CitySearch />);
+
   test("render text input", () => {
-    const CitySearchWrapper = shallow("<CitySearch />");
     expect(CitySearchWrapper.find(".city")).toHaveLength(1);
+  });
+
+  test("renders a list of suggestions", () => {
+    expect(CitySearchWrapper.find(".suggestions")).toHaveLength(1);
   });
 });
