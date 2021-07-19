@@ -15,7 +15,6 @@ describe("<App /> component", () => {
   });
 
   test("render CitySearch", () => {
-    const AppWrapper = shallow(<App />);
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
 });
