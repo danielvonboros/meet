@@ -15,8 +15,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <EventList events={this.state.events} />
         <CitySearch />
+        <EventList events={this.state.events} />
       </div>
     );
   }
