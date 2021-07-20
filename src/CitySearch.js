@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import App from "./App";
 
 class CitySearch extends Component {
   state = {
