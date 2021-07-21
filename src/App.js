@@ -10,13 +10,14 @@ class App extends React.Component {
     super();
     this.state = {
       events: [],
+      locations: [],
     };
   }
 
   render() {
     return (
       <div className="App">
-        <CitySearch />
+        <CitySearch locations={this.state.locations} />
         <EventList events={this.state.events} />
         <NumberOfEvents />
       </div>
