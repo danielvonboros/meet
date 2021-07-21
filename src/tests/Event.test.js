@@ -37,4 +37,11 @@ describe("<Event /> component", () => {
     EventWrapper.find(".toggle-details-btn").simulate("click");
     expect(EventWrapper.state("eventDetails")).toBe(true);
   });
+
+  test("event details collapse on click", () => {
+    const EventWrapper = shallow(<Event />);
+    EventWrapper.setState({ eventDetails: true });
+    EventWrapper.find(".toggle-details-btn").simulate("click");
+    expect(EventWrapper.state("eventDetails")).toBe(false);
+  });
 });
