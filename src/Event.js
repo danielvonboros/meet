@@ -17,20 +17,21 @@ class Event extends React.Component {
   }
 
   render() {
+    const { event } = this.props;
     return (
       <div>
-        <h2 className="event-title">{this.props.title}</h2>
+        <h2 className="event-title">{event.summary}</h2>
         <div className="basic-info">
-          <span>{this.props.startdate}</span>
-          <span>{this.props.location}</span>
+          <span>{event.startdate}</span>
+          <span>{event.location}</span>
         </div>
         <p className="event-details"></p>
 
         {this.state.eventDetails && (
           <div className="event-details">
             <h2>About event:</h2>
-            <a href="#">See Details on Google Calendar</a>
-            <p></p>
+            <a href={event.htmlLink}>See Details on Google Calendar</a>
+            <p>{event.description}</p>
           </div>
         )}
 
