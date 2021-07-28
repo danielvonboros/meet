@@ -3,6 +3,8 @@ import { shallow, mount } from "enzyme";
 import App from "../App";
 import CitySearch from "../CitySearch";
 import EventList from "../EventList";
+import Event from "../Event";
+import NumberOfEvents from "../NumberOfEvents";
 import { mockData } from "../mock-data";
 import { extractLocations, getEvents } from "../api";
 
@@ -62,6 +64,34 @@ describe("<App /> integration", () => {
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
     const allEvents = await getEvents();
     expect(AppWrapper.state("events")).toEqual(allEvents);
+    AppWrapper.unmount();
+  });
+
+  test('passes "numberOfEvents" state as a prop to NumberOfEvents component', () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberOfEventsState = AppWrapper.state("numberOfEvents");
+    expect(AppNumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(
+      AppNumberOfEventsState
+    );
+    AppWrapper.unmount();
+  });
+
+  // Warning that component changes a controlled input to be uncontrolled
+  test("should render a number of 32 events by default", () => {
+    const AppWrapper = mount(<App />);
+    const numberOfEvents = AppWrapper.find(NumberOfEvents).find(".number");
+    expect(numberOfEvents.props().value).toEqual(32);
+    AppWrapper.unmount();
+  });
+
+  // Warning that component changes a controlled input to be uncontrolled
+  test("change the number of displayed events when the user changes the input", async () => {
+    const AppWrapper = mount(<App />);
+    const numberOfEvents = AppWrapper.find(NumberOfEvents).find(".number");
+    const eventObject = { target: { value: 1 } };
+    await numberOfEvents.simulate("change", eventObject);
+    expect(AppWrapper.state("numberOfEvents")).toEqual(1);
     AppWrapper.unmount();
   });
 });
