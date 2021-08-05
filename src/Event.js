@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 class Event extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Event extends React.Component {
         </p>
           <span>{this.props.event && this.props.event.location}</span>
         </div>
-        <p className="event-details"></p>
+        
 
         {this.state.eventDetails && (
           <div className="event-details">

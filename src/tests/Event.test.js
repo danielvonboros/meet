@@ -1,6 +1,5 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
-import App from "../App";
+import { shallow } from "enzyme";
 import { mockData } from "../mock-data";
 import Event from "../Event";
 
@@ -25,7 +24,7 @@ describe("<Event /> component", () => {
 
   test("render basic event information", () => {
     const EventWrapper = shallow(<Event />);
-    expect(EventWrapper.find(".event-details")).toHaveLength(1);
+    expect(EventWrapper.find(".event")).toHaveLength(1);
   });
 
   test("have a toggle details button", () => {
