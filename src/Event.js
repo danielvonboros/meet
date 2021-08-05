@@ -26,7 +26,7 @@ class Event extends React.Component {
 
     // const eventStart = moment(start.dateTime, "YYYY-MM-DD HH:mm").toDate();
     return (
-      <div>
+      <div className="event">
         <h2 className="event-title">
           {this.props.event && this.props.event.summary}
         </h2>
