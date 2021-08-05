@@ -18,20 +18,19 @@ class Event extends React.Component {
   }
 
   render() {
-    // const event = this.props.event;
-    // const location = this.props.event.location;
-    // const htmlLink = this.props.event.htmlLink;
-    // const description = this.props.event.description;
-    // const start = this.props.event.start;
-
-    // const eventStart = moment(start.dateTime, "YYYY-MM-DD HH:mm").toDate();
     return (
+        
       <div className="event">
         <h2 className="event-title">
           {this.props.event && this.props.event.summary}
         </h2>
         <div className="basic-info">
-          {/* <span>{`${eventStart}`}</span> */}
+        <p className='event-start-date'>
+          {this.props.event && this.props.event.start.dateTime}, {this.props.event && this.props.event.start.timeZone}
+        </p>
+        <p className='event-end-date'>
+          {this.props.event && this.props.event.end.dateTime}, {this.props.event && this.props.event.end.timeZone}
+        </p>
           <span>{this.props.event && this.props.event.location}</span>
         </div>
         <p className="event-details"></p>
