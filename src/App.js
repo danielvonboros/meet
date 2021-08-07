@@ -1,10 +1,12 @@
 import React from "react";
 
-import "./App.css";
 import EventList from "./EventList";
-import CitySearch from "./CitySearch";
-import NumberOfEvents from "./NumberOfEvents";
+import NavBar from './NavBar';
+
+
 import { extractLocations, getEvents } from "./api";
+
+import "./App.css";
 
 class App extends React.Component {
   constructor() {
@@ -16,18 +18,12 @@ class App extends React.Component {
     };
   }
 
+  
+
   componentDidMount() {
-    // console.log(
-    //   this.state,
-    //   "state from cDM App",
-    //   this.props,
-    //   "props from cDM App"
-    // );
-    this.mounted = true; //this.state.mounted?
-    // eslint-disable-next-line no-undef
+    this.mounted = true;
     // NProgress.configure({ parent: "#root" });
 
-    // eslint-disable-next-line no-undef
     // NProgress.start();
 
     getEvents().then((events) => {
@@ -43,18 +39,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log(
-    //   this.state,
-    //   "state from cDU App",
-    //   this.props,
-    //   "props from cDU App"
-    // );
-    // this.mounted = true;
-    // if (this.state.numberOfEvents > 1 && this.state.numberOfEvents !== 32) {
-    //   this.setState({
-    //     events: this.state.events.slice(0, this.state.numberOfEvents),
-    //   });
-    // }
+ 
   }
 
   updateEvents = (location, eventCount) => {
@@ -83,16 +68,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
+        <NavBar 
+        updateEvents={this.updateEvents} 
+        numberOfEvents={this.state.numberOfEvents} 
+        handleEventNumberChange={(value) => this.onEventNumberChange(value)} 
+        locations={this.state.locations} 
         />
-        <NumberOfEvents
-          numberOfEvents={this.state.numberOfEvents}
-          handleEventNumberChange={(value) => {
-            this.onEventNumberChange(value);
-          }}
-          />
         <EventList
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}

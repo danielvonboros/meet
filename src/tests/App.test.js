@@ -3,7 +3,7 @@ import { shallow, mount } from "enzyme";
 import App from "../App";
 import CitySearch from "../CitySearch";
 import EventList from "../EventList";
-import Event from "../Event";
+import NavBar from "../NavBar";
 import NumberOfEvents from "../NumberOfEvents";
 import { mockData } from "../mock-data";
 import { extractLocations, getEvents } from "../api";
@@ -19,7 +19,7 @@ describe("<App /> component", () => {
   });
 
   test("render CitySearch", () => {
-    expect(AppWrapper.find(CitySearch)).toHaveLength(1);
+    expect(AppWrapper.find(NavBar).find(CitySearch)).toHaveLength(1);
   });
 });
 
@@ -35,13 +35,13 @@ describe("<App /> integration", () => {
     const AppWrapper = mount(<App />);
     const AppLocationState = AppWrapper.state("locations");
     expect(AppLocationState).not.toEqual(undefined);
-    expect(AppWrapper.find(CitySearch).props().locations).toEqual(
+    expect(AppWrapper.find(NavBar).find(CitySearch).props().locations).toEqual(
       AppLocationState
     );
   });
   test("get list of events in city selected by the user", async () => {
     const AppWrapper = mount(<App />);
-    const CitySearchWrapper = AppWrapper.find(CitySearch);
+    const CitySearchWrapper = AppWrapper.find(NavBar).find(CitySearch);
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({
       suggestions: locations,
@@ -60,7 +60,7 @@ describe("<App /> integration", () => {
 
   test('get a list of all events when user selects "all cities', async () => {
     const AppWrapper = mount(<App />);
-    const suggestionItems = AppWrapper.find(CitySearch).find(".suggestions li");
+    const suggestionItems = AppWrapper.find(NavBar).find(CitySearch).find(".suggestions li");
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
     const allEvents = await getEvents();
     expect(AppWrapper.state("events")).toEqual(allEvents);
@@ -71,7 +71,7 @@ describe("<App /> integration", () => {
     const AppWrapper = mount(<App />);
     const AppNumberOfEventsState = AppWrapper.state("numberOfEvents");
     expect(AppNumberOfEventsState).not.toEqual(undefined);
-    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(
+    expect(AppWrapper.find(NavBar).find(NumberOfEvents).props().numberOfEvents).toEqual(
       AppNumberOfEventsState
     );
     AppWrapper.unmount();
@@ -80,7 +80,7 @@ describe("<App /> integration", () => {
   // Warning that component changes a controlled input to be uncontrolled
   test("should render a number of 32 events by default", () => {
     const AppWrapper = mount(<App />);
-    const numberOfEvents = AppWrapper.find(NumberOfEvents).find(".number");
+    const numberOfEvents = AppWrapper.find(NavBar).find(NumberOfEvents).find(".number");
     expect(numberOfEvents.props().value).toEqual(32);
     AppWrapper.unmount();
   });
@@ -88,7 +88,7 @@ describe("<App /> integration", () => {
   // Warning that component changes a controlled input to be uncontrolled
   test("change the number of displayed events when the user changes the input", async () => {
     const AppWrapper = mount(<App />);
-    const numberOfEvents = AppWrapper.find(NumberOfEvents).find(".number");
+    const numberOfEvents = AppWrapper.find(NavBar).find(NumberOfEvents).find(".number");
     const eventObject = { target: { value: 1 } };
     await numberOfEvents.simulate("change", eventObject);
     expect(AppWrapper.state("numberOfEvents")).toEqual(1);

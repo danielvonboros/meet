@@ -16,6 +16,7 @@ class NumberOfEvents extends React.Component {
       <div className="event-number">
         <input
           className="number"
+          placeholder="Number of Events"
           value={this.props.numberOfEvents}
           onChange={this.handleInputChange.bind(this)}
         />

@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 
 import App from '../app';
 import NumberOfEvents from '../NumberOfEvents';
+import NavBar from "../NavBar";
 
 import {mockData} from '../mock-data';
 
@@ -35,7 +36,7 @@ defineFeature(feature, test => {
         });
 
         when('the user specifies a different number of events to be shown in the settings', async () => {
-            const numberOfEvents = AppWrapper.find(NumberOfEvents).find(".number");
+            const numberOfEvents = AppWrapper.find(NavBar).find(NumberOfEvents).find(".number");
             const eventObject = { target: { value: 1 } };
             await numberOfEvents.simulate("change", eventObject);
             // Because mock-data only has 2 events - so 2 options - 1 or 2
