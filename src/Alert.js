@@ -14,7 +14,7 @@ class Alert extends React.Component {
 
     render() {
         return(
-            <div className="Alert">
+            <div className="Alert Alert-Background">
                 <p style={this.getStyle()}>
                     {this.props.text}
                 </p>
@@ -30,4 +30,11 @@ class InfoAlert extends Alert {
     }
 }
 
-export {InfoAlert};
+class ErrorAlert extends Alert {
+    constructor(props) {
+        super(props);
+        this.color='red';
+    }
+}
+
+export {InfoAlert, ErrorAlert};

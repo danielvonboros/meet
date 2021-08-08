@@ -17,6 +17,15 @@ p {
   margin: 5px 0;
 }
 
+.Alert {
+  text-align: left;
+  line-height: 1.2em;
+  height: 1.2em;
+  z-index: 2;
+  margin-top: 10em;
+  margin-left: 5em;
+}
+
 .display-none {
   display: none;
 }
