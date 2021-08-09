@@ -14,7 +14,7 @@ export default class NavBar extends React.Component {
 <div>
 <AppBar style={{backgroundColor: colors.grey[900]}}>
     <Toolbar>
-        <img src="../public/logo_large.png" alt="meet logo" />
+        <img className="logo" src="./mat/logo_large.png" alt="meet logo" />
         <Typography style={{flexGrow:7}}> </Typography>
         <CitySearch
           locations={this.props.locations}
@@ -23,6 +23,7 @@ export default class NavBar extends React.Component {
         <Typography ># of events</Typography>
         <NumberOfEvents
           numberOfEvents={this.props.numberOfEvents}
+          updateEvents={this.props.updateEvents}
           handleEventNumberChange={(value) => {
             this.props.handleEventNumberChange(value);
           }}

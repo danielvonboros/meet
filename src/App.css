@@ -1,7 +1,19 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300);
+
+* {
+  font-family: "Quicksand";
+}
+
+body {
+  background-image: url(./mat/pexels-photo-417023.jpeg);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .App * {
@@ -22,8 +34,7 @@ p {
   line-height: 1.2em;
   height: 1.2em;
   z-index: 2;
-  margin-top: 10em;
-  margin-left: 5em;
+  margin-left: -30em;
 }
 
 .display-none {
@@ -66,13 +77,14 @@ input[type="number"] {
   margin: 0;
   top: 43px;
   font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 16px -12px rgba(221, 159, 159, 0.75);
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
+  color: #000;
   cursor: default;
 }
 
@@ -82,7 +94,7 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #ecff83;
 }
 
 .event {
@@ -92,9 +104,14 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-.details-btn {
+.info-box {
+  text-align: center;
+}
+
+.toggle-details-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -204,7 +221,7 @@ input[type="number"] {
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.2px;
-  font-family: "Roboto";
+  font-family: "Quicksand";
 }
 
 @media only screen and (min-width: 992px) {

@@ -23,7 +23,7 @@ class Event extends React.Component {
       <div className="event">
         <h2 className="event-title">
           {this.props.event && this.props.event.summary}
-        </h2>
+          </h2>
         <div className="basic-info">
         <p className='event-start-date'>
           {this.props.event && this.props.event.start.dateTime}, {this.props.event && this.props.event.start.timeZone}

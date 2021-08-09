@@ -56,10 +56,15 @@ class App extends React.Component {
   };
 
   onEventNumberChange(value) {
+    if (value <= 0 || value > 32) {
+      this.setState=({
+        errorText : 'Please enter a value between 1 and 32',
+        numberOfEvents:'',
+      }) } else { 
     this.setState({
       numberOfEvents: value,
     });
-  }
+  }}
 
   componentWillUnmount() {
     this.mounted = false;
@@ -74,6 +79,9 @@ class App extends React.Component {
         handleEventNumberChange={(value) => this.onEventNumberChange(value)} 
         locations={this.state.locations} 
         />
+        <br />
+        <br />
+        <br />
         <EventList
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
