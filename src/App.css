@@ -7,6 +7,10 @@
 body {
   background-image: url(./mat/pexels-photo-417023.jpeg);
   background-color: rgba(255, 255, 255, 0.75);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .App {
@@ -34,7 +38,7 @@ p {
   line-height: 1.2em;
   height: 1.2em;
   z-index: 2;
-  margin-left: -30em;
+  margin-left: -45em;
 }
 
 .display-none {

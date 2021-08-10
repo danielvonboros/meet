@@ -7,6 +7,7 @@ import NavBar from './NavBar';
 import { extractLocations, getEvents } from "./api";
 
 import "./App.css";
+import NProgress from "nprogress";
 
 class App extends React.Component {
   constructor() {
@@ -15,6 +16,7 @@ class App extends React.Component {
       events: [],
       locations: [],
       numberOfEvents: 32,
+      errorText:'',
     };
   }
 
@@ -22,18 +24,17 @@ class App extends React.Component {
 
   componentDidMount() {
     this.mounted = true;
-    // NProgress.configure({ parent: "#root" });
+    NProgress.configure({ parent: "#root" });
 
-    // NProgress.start();
+    NProgress.start();
 
     getEvents().then((events) => {
-      //console.log
       if (this.mounted) {
-        //console.log
         this.setState({
           events: events.slice(0, this.props.numberOfEvents),
           locations: extractLocations(events),
         });
+        NProgress.done();
       }
     });
   }
@@ -55,16 +56,20 @@ class App extends React.Component {
     });
   };
 
-  onEventNumberChange(value) {
-    if (value <= 0 || value > 32) {
-      this.setState=({
+  onEventNumberChange(event) {
+    const value = event.target.value;
+    if (value < 0 || value > 32) {
+      this.setState({
         errorText : 'Please enter a value between 1 and 32',
-        numberOfEvents:'',
-      }) } else { 
-    this.setState({
+        numberOfEvents: '',
+      }) 
+    } else { 
+      this.setState({
       numberOfEvents: value,
+      errorText : '',
     });
-  }}
+  }
+}
 
   componentWillUnmount() {
     this.mounted = false;
@@ -78,6 +83,7 @@ class App extends React.Component {
         numberOfEvents={this.state.numberOfEvents} 
         handleEventNumberChange={(value) => this.onEventNumberChange(value)} 
         locations={this.state.locations} 
+        errorText={this.state.errorText}
         />
         <br />
         <br />

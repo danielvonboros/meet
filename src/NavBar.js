@@ -9,6 +9,7 @@ import {colors, AppBar, Toolbar, Typography} from '@material-ui/core';
 export default class NavBar extends React.Component {
     
     render(){
+      console.log(this, 'from NavBar');
     return(
         
 <div>
@@ -23,11 +24,13 @@ export default class NavBar extends React.Component {
         <Typography ># of events</Typography>
         <NumberOfEvents
           numberOfEvents={this.props.numberOfEvents}
-          updateEvents={this.props.updateEvents}
+          // updateEvents={this.props.updateEvents}
+          errorText={this.props.errorText}
           handleEventNumberChange={(value) => {
             this.props.handleEventNumberChange(value);
           }}
         />
+        
     </Toolbar>
 </AppBar>
 </div>

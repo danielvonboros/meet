@@ -7,6 +7,7 @@ class NumberOfEvents extends React.Component {
     super(props);
     this.state=({
       errorText:'',
+      numberOfEvents:'',
     })
   }
 
@@ -14,23 +15,24 @@ componentDidUpdate() {
   console.log(this.props.numberOfEvents, 'Number of Events after Update')
 }
 
-  handleInputChange(event) {
-    const value = event.target.value;
-    if (value < 1 || value > 32) {
-      return this.setState=({
-        errorText : 'Please enter a value between 1 and 32',
-        numberOfEvents:'value',
-      });
-      } else {
-        this.setState=({
-          errorText : '',
-          numberOfEvents:'value',
-        });
-    this.props.handleEventNumberChange(value);
-  }
- }
+//   handleInputChange(event) {
+//     const value = event.target.value;
+//     // if (value < 1 || value > 32) {
+//     //   return this.setState({
+//     //     errorText : 'Please enter a value between 1 and 32',
+//     //     numberOfEvents:'value',
+//     //   });
+//     //   } else {
+//     //     this.setState({
+//     //       errorText : this.props.errorText,
+//     //       numberOfEvents:'value',
+//     //     });
+//     this.props.handleEventNumberChange(value);
+//   // }
+//  }
 
   render() {
+    console.log(this, 'this from NumberOfEvents');
     return (
       <div className="event-number">
         <ErrorAlert text={this.props.errorText} />
@@ -38,7 +40,7 @@ componentDidUpdate() {
           className="number"
           placeholder="Number of Events"
           value={this.props.numberOfEvents}
-          onChange={this.handleInputChange.bind(this)}
+          onChange={this.props.handleEventNumberChange.bind(this)}
         />
       </div>
     );

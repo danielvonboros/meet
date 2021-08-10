@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Event from "./Event";
-import {InfoAlert} from './Alert';
-import { mockData } from "./mock-data";
 
 class EventList extends Component {
   render() {

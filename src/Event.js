@@ -26,12 +26,12 @@ class Event extends React.Component {
           </h2>
         <div className="basic-info">
         <p className='event-start-date'>
-          {this.props.event && this.props.event.start.dateTime}, {this.props.event && this.props.event.start.timeZone}
+          Starts at: {this.props.event && this.props.event.start.dateTime}, {this.props.event && this.props.event.start.timeZone}
         </p>
         <p className='event-end-date'>
-          {this.props.event && this.props.event.end.dateTime}, {this.props.event && this.props.event.end.timeZone}
+          Ends: {this.props.event && this.props.event.end.dateTime}, {this.props.event && this.props.event.end.timeZone}
         </p>
-          <span>{this.props.event && this.props.event.location}</span>
+          <span>Location: {this.props.event && this.props.event.location}</span>
         </div>
         
 
@@ -54,7 +54,7 @@ class Event extends React.Component {
           className="toggle-details-btn"
           onClick={() => this.toggleDetails()}
         >
-          {!this.state.eventDetails ? "show details" : "hide-details"}
+          {!this.state.eventDetails ? "show details" : "hide details"}
         </button>
       </div>
     );
