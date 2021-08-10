@@ -48,6 +48,13 @@ p {
   display: block;
 }
 
+.showError {
+  display: block;
+  margin: 20% auto;
+  background-color: lightyellow;
+  border: lightcoral;
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
