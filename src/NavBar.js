@@ -9,7 +9,6 @@ import {colors, AppBar, Toolbar, Typography} from '@material-ui/core';
 export default class NavBar extends React.Component {
     
     render(){
-      console.log(this, 'from NavBar');
     return(
         
 <div>
