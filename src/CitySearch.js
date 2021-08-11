@@ -3,12 +3,26 @@ import React, { Component } from "react";
 import {InfoAlert} from './Alert';
 
 class CitySearch extends Component {
-  state = {
+  constructor(props){
+    super(props);
+  
+
+  this.state = {
     query: "",
     suggestions: [],
     showSuggestions: undefined,
     infoText:'',
+  
   };
+}
+
+  componentDidMount() {
+    console.log(this)
+  }
+
+  componentDidUpdate() {
+    console.log(this)
+  }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
@@ -18,15 +32,20 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'We can not find the city you are looking for. Please try another city',
-      })
+        // infoText: 'We can not find the city you are looking for. Please try another city',
+      });
+      this.props.onNoCityFound();
     } else {
-    return this.setState({ query: value, suggestions, infoText:'' });
+    this.props.onCityFound();
+    return this.setState({ query: value, suggestions, 
+      // infoText:''
+     });
   }
   };
 
   handleItemClicked = (suggestion) => {
     this.setState({ query: suggestion, showSuggestions: false, infoText:'' });
+    this.props.onCityFound();
     this.props.updateEvents(suggestion);
   };
 

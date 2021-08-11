@@ -19,11 +19,12 @@ export default class NavBar extends React.Component {
         <CitySearch
           locations={this.props.locations}
           updateEvents={this.props.updateEvents}
+          onCityFound={this.props.onCityFound}
+          onNoCityFound={this.props.onNoCityFound}
         />
         <Typography ># of events</Typography>
         <NumberOfEvents
           numberOfEvents={this.props.numberOfEvents}
-          // updateEvents={this.props.updateEvents}
           errorText={this.props.errorText}
           handleEventNumberChange={(value) => {
             this.props.handleEventNumberChange(value);

@@ -71,6 +71,14 @@ class App extends React.Component {
   }
 }
 
+handleNoCityFound() {
+  console.log('no city found')
+}
+
+handleCityFound() {
+  console.log('city found')
+}
+
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -84,11 +92,13 @@ class App extends React.Component {
         handleEventNumberChange={(value) => this.onEventNumberChange(value)} 
         locations={this.state.locations} 
         errorText={this.state.errorText}
+        handleCityFound={this.props.onCityFound}
+        handleNoCityFound={this.props.onNoCityFound}
         />
         <br />
         <br />
         <br />
-        <EventList
+        <EventList className='EventList'
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
         />

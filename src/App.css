@@ -79,6 +79,10 @@ input[type="number"] {
   position: relative;
 }
 
+.EventList {
+  padding-top: 3em;
+}
+
 .suggestions {
   width: 250px;
   position: absolute;
@@ -252,5 +256,16 @@ input[type="number"] {
   }
   .MuiToolbar-root {
     flex-direction: column;
+  }
+  .Alert {
+    text-align: left;
+    line-height: 1.2em;
+    height: 1.2em;
+    z-index: 2;
+    margin-left: 0em;
+    margin-top: 10em;
+  }
+  .EventList {
+    padding-top: 5em;
   }
 }
