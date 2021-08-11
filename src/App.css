@@ -74,7 +74,6 @@ input[type="number"] {
 .CitySearch {
   display: flex;
   flex-direction: column;
-  flex-basis: 300px;
   max-width: 300px;
   margin: auto;
   position: relative;
@@ -244,5 +243,14 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .app-bar {
+    flex-direction: column;
+  }
+  .MuiToolbar-root {
+    flex-direction: column;
   }
 }

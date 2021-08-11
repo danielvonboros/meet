@@ -12,10 +12,10 @@ export default class NavBar extends React.Component {
     return(
         
 <div>
-<AppBar style={{backgroundColor: colors.grey[900]}}>
+<AppBar className='app-bar' style={{backgroundColor: colors.grey[900]}}>
     <Toolbar>
         <img className="logo" src="./mat/logo_large.png" alt="meet logo" />
-        <Typography style={{flexGrow:7}}> </Typography>
+        
         <CitySearch
           locations={this.props.locations}
           updateEvents={this.props.updateEvents}
