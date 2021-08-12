@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from "react";
-import {ErrorAlert} from './Alert';
+// import {ErrorAlert} from './Alert';
 
 class NumberOfEvents extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class NumberOfEvents extends React.Component {
   render() {
     return (
       <div className="event-number">
-        <ErrorAlert text={this.props.errorText} />
+        {/* <ErrorAlert text={this.props.errorText} /> */}
         <input
           className="number"
           placeholder="Number of Events"

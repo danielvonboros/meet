@@ -6,33 +6,31 @@ import NumberOfEvents from './NumberOfEvents';
 import {colors, AppBar, Toolbar, Typography} from '@material-ui/core';
 
 
-export default class NavBar extends React.Component {
-    
-    render(){
-    return(
-        
+export default function NavBar(props) {
+return(     
 <div>
 <AppBar className='app-bar' style={{backgroundColor: colors.grey[900]}}>
     <Toolbar>
         <img className="logo" src="./mat/logo_large.png" alt="meet logo" />
         
         <CitySearch
-          locations={this.props.locations}
-          updateEvents={this.props.updateEvents}
-          onCityFound={this.props.onCityFound}
-          onNoCityFound={this.props.onNoCityFound}
+          locations={props.locations}
+          updateEvents={props.updateEvents}
+          locationChange={props.onLocationChange}
+          onCityFound={props.onCityFound}
+          onNoCityFound={props.onNoCityFound}
         />
         <Typography ># of events</Typography>
         <NumberOfEvents
-          numberOfEvents={this.props.numberOfEvents}
-          errorText={this.props.errorText}
+          numberOfEvents={props.numberOfEvents}
+          errorText={props.errorText}
           handleEventNumberChange={(value) => {
-            this.props.handleEventNumberChange(value);
+            props.handleEventNumberChange(value);
           }}
         />
         
     </Toolbar>
 </AppBar>
 </div>
-)}
+)
 }

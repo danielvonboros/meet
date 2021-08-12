@@ -34,11 +34,23 @@ p {
 }
 
 .Alert {
-  text-align: left;
+  text-align: center;
   line-height: 1.2em;
   height: 1.2em;
   z-index: 2;
   margin-left: -42em;
+}
+
+.box {
+  height: 90px;
+  width: 40vw;
+  margin: 15% auto;
+  border-radius: 5px;
+  background-color: lightyellow;
+  z-index: 1;
+  display: block;
+  font-size: 1.4rem;
+  line-break: auto;
 }
 
 .display-none {
