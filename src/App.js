@@ -53,9 +53,9 @@ class App extends React.Component {
 
   componentDidUpdate() {
     if (!navigator.onLine) {
-      this.removeOfflineWarningMessage()
-    } else {
       this.showOfflineWarningMessage()
+    } else {
+      this.removeOfflineWarningMessage()
     }
   }
 
