@@ -2878,11 +2878,6 @@
   "resolved" "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
   "version" "1.0.0"
 
-"atatus-spa@^4.3.2":
-  "integrity" "sha512-VCA7hJ2cF8SQ6r82gAi50dsEHvcirRG4dWATUmghQjTJqNYQxcpsJxdjcSbfjyI6bsvxF4jdWI6oeOqhU1zKjQ=="
-  "resolved" "https://registry.npmjs.org/atatus-spa/-/atatus-spa-4.3.2.tgz"
-  "version" "4.3.2"
-
 "atob@^2.1.2":
   "integrity" "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg=="
   "resolved" "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz"
