@@ -8,9 +8,9 @@ class EventList extends Component {
     //Get Events from props
     const { events } = this.props;
     //Get Number of Events from App component
-    // let numberOfEvents = this.props.numberOfEvents;
+    let numberOfEvents = this.props.numberOfEvents;
     //Modify the EventList by slicing the number of outputs
-    // let customEvents = events.slice(0, numberOfEvents);
+    let customEvents = events.slice(0, numberOfEvents);
 
     return (
       <ul className='EventList'>
@@ -23,8 +23,7 @@ class EventList extends Component {
           <p>Still wondering what coding events will be taking place next?</p>
         </li>
         <br />
-        console.log(event)
-        {events.map((event) => (
+        {customEvents.map((event) => (
           <li key={event.id}>
             <Event event={event} />
           </li>
