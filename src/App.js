@@ -27,6 +27,16 @@ class App extends React.Component {
     this.mounted = true;
     NProgress.configure({ parent: "#root" });
 
+    // if (!navigator.onLine) {
+    //   this.setState({
+    //     warningText:"Client is offline. Data could be outdated"
+    //   })
+    // } else {
+    //   this.setState({
+    //     warningText:""
+    //   })
+    // }
+
     NProgress.start();
 
     getEvents().then((events) => {
@@ -36,11 +46,18 @@ class App extends React.Component {
           locations: extractLocations(events),
         });
         NProgress.done();
+        
       }
     });
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    if (!navigator.onLine) {
+      this.removeOfflineWarningMessage()
+    } else {
+      this.showOfflineWarningMessage()
+    }
+  }
 
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
@@ -52,17 +69,27 @@ class App extends React.Component {
         events: locationEvents,
         numberOfEvents: eventCount,
       });
-      if (!navigator.onLine) {
-        this.setState({
-          warningText:"Client is offline. Data could be outdated"
-        })
-      } else {
-        this.setState({
-          warningText:""
-        })
-      }
+      
     });
   };
+
+  showOfflineWarningMessage() {
+    if (!navigator.onLine) {
+      this.setState({
+        warningText: "Client is offline. Data could be outdated"
+      });
+    }
+  }
+
+  removeOfflineWarningMessage() {
+    if (navigator.onLine) {
+      this.setState({
+        warningText:''
+      })
+    }
+  }
+
+
 
   onEventNumberChange(event) {
     const value = event.target.value;
