@@ -2,7 +2,7 @@ import React from "react";
 
 import EventList from "./EventList";
 import NavBar from "./NavBar";
-import { ErrorAlert, InfoAlert } from "./Alert";
+import { ErrorAlert, InfoAlert, WarningAlert } from "./Alert";
 
 import { extractLocations, getEvents } from "./api";
 
@@ -18,6 +18,7 @@ class App extends React.Component {
       numberOfEvents: 32,
       errorText: "",
       infoText: "",
+      warningText:"",
       isBoxVisible: false,
     };
   }
@@ -51,6 +52,15 @@ class App extends React.Component {
         events: locationEvents,
         numberOfEvents: eventCount,
       });
+      if (!navigator.onLine) {
+        this.setState({
+          warningText:"Client is offline. Data could be outdated"
+        })
+      } else {
+        this.setState({
+          warningText:""
+        })
+      }
     });
   };
 
@@ -131,8 +141,10 @@ class App extends React.Component {
         <div id='infoBox'>
           {this.state.infoText}
           {this.state.errorText}
+          {this.state.warningText}
           <InfoAlert />
           <ErrorAlert text={this.props.errorText} />
+          <WarningAlert />
         </div>
         <EventList
           className='EventList'
