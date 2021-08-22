@@ -39,7 +39,7 @@ class EventList extends Component {
             <EventGenre events={events} />
             <ResponsiveContainer height={400}>
               <ScatterChart
-                height={389}
+                height={528}
                 width={400}
                 margin={{
                   top: 20,
