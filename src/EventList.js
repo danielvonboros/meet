@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Event from "./Event";
+import EventGenre from "./EventGenre";
 
 import {
   ScatterChart,
@@ -33,23 +34,24 @@ class EventList extends Component {
           <p>Still wondering what coding events will be taking place next?</p>
         </li>
         <br />
-        <li>
-          <ScatterChart
-            width={800}
-            height={400}
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20,
-            }}
-          >
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" />
-            <YAxis type="number" dataKey="number" name="number of events" />
-            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-            <Scatter name="A school" data={this.props.data} fill="#8884d8" />
-          </ScatterChart>
+        <li className="event info-box">
+          <EventGenre events={events} />
+          <ResponsiveContainer height={400}>
+            <ScatterChart
+              margin={{
+                top: 20,
+                right: 10,
+                bottom: 20,
+                left: 10,
+              }}
+            >
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis type="number" dataKey="number" name="number of events" />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+              <Scatter data={this.props.data} fill="#8884d8" />
+            </ScatterChart>
+          </ResponsiveContainer>
         </li>
         <br />
         {customEvents.map((event) => (
