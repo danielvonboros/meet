@@ -36,7 +36,9 @@ const EventGenre = ({ events }) => {
           fill="#8884d8"
           paddingAngle={5}
           dataKey="value"
-          label
+          label={({ name, percent }) =>
+            `${name} ${(percent * 100).toFixed(0)}%`
+          }
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
