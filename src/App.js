@@ -59,6 +59,18 @@ class App extends React.Component {
     }
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   //   getEvents().then((events) => {
   //     if (this.mounted) {
   //       this.setState({
@@ -167,6 +179,7 @@ class App extends React.Component {
           <WarningAlert />
         </div>
         <EventList
+          data={this.getData()}
           className="EventList"
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
