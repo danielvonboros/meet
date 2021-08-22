@@ -35,9 +35,11 @@ class EventList extends Component {
         </li>
         <br />
         <li className="event info-box">
-          <EventGenre events={events} />
           <ResponsiveContainer height={400}>
+            <EventGenre events={events} />
             <ScatterChart
+              height={389}
+              width={400}
               margin={{
                 top: 20,
                 right: 10,

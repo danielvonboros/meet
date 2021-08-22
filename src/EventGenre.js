@@ -26,16 +26,17 @@ const EventGenre = ({ events }) => {
 
   return (
     <ResponsiveContainer height={400}>
-      <PieChart width={400} height={400}>
+      <PieChart width={389} height={400}>
         <Pie
           data={data}
-          cx={200}
+          cx={194}
           cy={200}
           innerRadius={60}
           outerRadius={80}
           fill="#8884d8"
           paddingAngle={5}
           dataKey="value"
+          label
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
