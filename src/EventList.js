@@ -35,25 +35,27 @@ class EventList extends Component {
         </li>
         <br />
         <li className="event info-box">
-          <ResponsiveContainer height={400}>
+          <div className="data-vis-wrapper">
             <EventGenre events={events} />
-            <ScatterChart
-              height={389}
-              width={400}
-              margin={{
-                top: 20,
-                right: 10,
-                bottom: 20,
-                left: 10,
-              }}
-            >
-              <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" />
-              <YAxis type="number" dataKey="number" name="number of events" />
-              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.props.data} fill="#8884d8" />
-            </ScatterChart>
-          </ResponsiveContainer>
+            <ResponsiveContainer height={400}>
+              <ScatterChart
+                height={389}
+                width={400}
+                margin={{
+                  top: 20,
+                  right: 10,
+                  bottom: 20,
+                  left: 10,
+                }}
+              >
+                <CartesianGrid />
+                <XAxis type="category" dataKey="city" name="city" />
+                <YAxis type="number" dataKey="number" name="number of events" />
+                <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                <Scatter data={this.props.data} fill="#8884d8" />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
         </li>
         <br />
         {customEvents.map((event) => (
