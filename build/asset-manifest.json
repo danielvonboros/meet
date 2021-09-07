@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.css": "/meet/static/css/main.155878f1.chunk.css",
-    "main.js": "/meet/static/js/main.ab40735b.chunk.js",
-    "main.js.map": "/meet/static/js/main.ab40735b.chunk.js.map",
-    "runtime-main.js": "/meet/static/js/runtime-main.796cbf6b.js",
-    "runtime-main.js.map": "/meet/static/js/runtime-main.796cbf6b.js.map",
-    "static/js/2.f3840249.chunk.js": "/meet/static/js/2.f3840249.chunk.js",
-    "static/js/2.f3840249.chunk.js.map": "/meet/static/js/2.f3840249.chunk.js.map",
-    "static/js/3.e9c3b903.chunk.js": "/meet/static/js/3.e9c3b903.chunk.js",
-    "static/js/3.e9c3b903.chunk.js.map": "/meet/static/js/3.e9c3b903.chunk.js.map",
+    "main.css": "/meet/static/css/main.2e6744ce.chunk.css",
+    "main.js": "/meet/static/js/main.9a374d4a.chunk.js",
+    "main.js.map": "/meet/static/js/main.9a374d4a.chunk.js.map",
+    "runtime-main.js": "/meet/static/js/runtime-main.aa0c88cd.js",
+    "runtime-main.js.map": "/meet/static/js/runtime-main.aa0c88cd.js.map",
+    "static/js/2.bbb77a39.chunk.js": "/meet/static/js/2.bbb77a39.chunk.js",
+    "static/js/2.bbb77a39.chunk.js.map": "/meet/static/js/2.bbb77a39.chunk.js.map",
+    "static/js/3.0ae701d1.chunk.js": "/meet/static/js/3.0ae701d1.chunk.js",
+    "static/js/3.0ae701d1.chunk.js.map": "/meet/static/js/3.0ae701d1.chunk.js.map",
     "index.html": "/meet/index.html",
     "service-worker.js": "/meet/service-worker.js",
     "service-worker.js.map": "/meet/service-worker.js.map",
-    "static/css/main.155878f1.chunk.css.map": "/meet/static/css/main.155878f1.chunk.css.map",
-    "static/js/2.f3840249.chunk.js.LICENSE.txt": "/meet/static/js/2.f3840249.chunk.js.LICENSE.txt",
-    "static/media/logo_large.7f5a5430.png": "/meet/static/media/logo_large.7f5a5430.png",
-    "static/media/App.css": "/meet/static/media/pexels-photo-417023.f9f79405.jpeg"
+    "static/css/main.2e6744ce.chunk.css.map": "/meet/static/css/main.2e6744ce.chunk.css.map",
+    "static/js/2.bbb77a39.chunk.js.LICENSE.txt": "/meet/static/js/2.bbb77a39.chunk.js.LICENSE.txt",
+    "static/media/meetLogo.c14253d9.png": "/meet/static/media/meetLogo.c14253d9.png",
+    "static/media/meetLogoRosa.21d80595.png": "/meet/static/media/meetLogoRosa.21d80595.png",
+    "static/media/App.css": "/meet/static/media/meet_background.b2e4bab5.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.796cbf6b.js",
-    "static/js/2.f3840249.chunk.js",
-    "static/css/main.155878f1.chunk.css",
-    "static/js/main.ab40735b.chunk.js"
+    "static/js/runtime-main.aa0c88cd.js",
+    "static/js/2.bbb77a39.chunk.js",
+    "static/css/main.2e6744ce.chunk.css",
+    "static/js/main.9a374d4a.chunk.js"
   ]
 }

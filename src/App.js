@@ -2,9 +2,11 @@ import React from "react";
 
 import EventList from "./EventList";
 import NavBar from "./NavBar";
+import WelcomeScreen from "./WelcomeScreen";
+
 import { ErrorAlert, InfoAlert, WarningAlert } from "./Alert";
 
-import { extractLocations, getEvents } from "./api";
+import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
 
 import "./App.css";
 import NProgress from "nprogress";
@@ -15,42 +17,82 @@ class App extends React.Component {
     this.state = {
       events: [],
       locations: [],
+      showWelcomeScreen: undefined,
       numberOfEvents: 32,
       errorText: "",
       infoText: "",
-      warningText:"",
+      warningText: "",
       isBoxVisible: false,
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     NProgress.configure({ parent: "#root" });
-
     NProgress.start();
+    const accessToken = localStorage.getItem("access_token");
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({
+            events: events.slice(0, this.props.numberOfEvents),
+            locations: extractLocations(events),
+          });
 
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({
-          events: events.slice(0, this.props.numberOfEvents),
-          locations: extractLocations(events),
-        });
-
-        if (!navigator.onLine) {
+          if (!navigator.onLine) {
             this.setState({
-              warningText:"Client is offline. Data could be outdated"
-            })
+              warningText: "Client is offline. Data could be outdated",
+            });
           } else {
             this.setState({
-              warningText:""
-            })
+              warningText: "",
+            });
           }
 
-        NProgress.done();
-        
-      }
-    });
+          NProgress.done();
+        }
+      });
+    }
   }
+
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
+  };
+
+  //   getEvents().then((events) => {
+  //     if (this.mounted) {
+  //       this.setState({
+  //         events: events.slice(0, this.props.numberOfEvents),
+  //         locations: extractLocations(events),
+  //       });
+
+  //       if (!navigator.onLine) {
+  //           this.setState({
+  //             warningText:"Client is offline. Data could be outdated"
+  //           })
+  //         } else {
+  //           this.setState({
+  //             warningText:""
+  //           })
+  //         }
+
+  //       NProgress.done();
+
+  //     }
+  //   });
+  // }
 
   updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
@@ -62,7 +104,6 @@ class App extends React.Component {
         events: locationEvents,
         numberOfEvents: eventCount,
       });
-      
     });
   };
 
@@ -84,18 +125,6 @@ class App extends React.Component {
       boxElement.classList.remove("box");
     }
   }
-
-  // onLocationChange(location) {
-  //   const suggestions = document.getElementsByClassName('suggestions');
-  //    (suggestions.length < 2) ?
-  //     this.setState({
-  //       infoText : 'We can not find the city you are looking for. Please try another city'
-  //     }) :
-  //     this.setState({
-  //       infoText : ''
-  //     });
-  //   };
-  // };
 
   handleCityFound() {
     let boxElement = document.getElementById("infoBox");
@@ -123,10 +152,11 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(infoText)
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className="App" />;
 
     return (
-      <div className='App'>
+      <div className="App">
         <NavBar
           updateEvents={this.updateEvents}
           numberOfEvents={this.state.numberOfEvents}
@@ -140,7 +170,7 @@ class App extends React.Component {
         <br />
         <br />
         <br />
-        <div id='infoBox'>
+        <div id="infoBox">
           {this.state.infoText}
           {this.state.errorText}
           {this.state.warningText}
@@ -149,9 +179,16 @@ class App extends React.Component {
           <WarningAlert />
         </div>
         <EventList
-          className='EventList'
+          data={this.getData()}
+          className="EventList"
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
+        />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
         />
       </div>
     );
