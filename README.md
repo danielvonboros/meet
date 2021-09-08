@@ -1,5 +1,8 @@
 ![alt meetLogo](https://github.com/danielvonboros/meet/blob/main/src/mat/meetLogo.png?raw=true)
-Coding events worldwide
+
+<p>Coding events worldwide</p>
+
+<hr>
 
 ### Description
 
@@ -65,7 +68,14 @@ city so that I know what events are organized in which city.</li>
 ### Application functions
 
 The Meet Application provides a list of Calendar events fetched from the Google Calendar API. Users can authenticate with their Google-Account to get access to the Application. The Application meets PWA standards and can be downloaded on both desktop and mobile devices.
-The Application provides serverless functions (AWS lambda)
+The Application provides serverless functions (AWS lambda) and works both online and offline.
+
+### Run the Application
+
+All you have to do to run the application is to head to:
+
+<a href="https://danielvonboros.github.io/meet">This Page</a>, go through the Google Authorization process and have fun accessing the page.
+Because the Application is meant to work as a PWA, there's no further tools needed thn just your browser to access the application.
 
 ### App structure
 
